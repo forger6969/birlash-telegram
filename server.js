@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const TelegramBot = require('node-telegram-bot-api');
 const bodyParser = require('body-parser');
+const cors = require("cors");
 
 
 // Настройки из .env
