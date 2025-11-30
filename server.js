@@ -3,7 +3,6 @@ require('dotenv').config();
 const express = require('express');
 const TelegramBot = require('node-telegram-bot-api');
 const bodyParser = require('body-parser');
-app.use(cors());
 
 
 // Настройки из .env
@@ -24,6 +23,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
+app.use(cors());
 
 // База данных
 const clients = [];
