@@ -10,7 +10,7 @@ const cors = require("cors");
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const API_PORT = process.env.API_PORT || 3000;
 const API_SECRET_KEY = process.env.API_SECRET_KEY;
-const ADMIN_ID = parseInt(process.env.ADMIN_ID);
+const ADMIN_IDS = (process.env.ADMIN_IDS || '').split(',').map(id => parseInt(id.trim()));
 const PAYMENT_PASSWORD = process.env.PAYMENT_PASSWORD;
 
 // Проверка обязательных переменных
@@ -70,7 +70,7 @@ const formatDate = (date) => {
 };
 
 // Проверка админа
-const isAdmin = (chatId) => chatId === ADMIN_ID;
+const isAdmin = (chatId) => ADMIN_IDS.includes(chatId);
 
 // ==================== TELEGRAM BOT - ОБЫЧНЫЕ ПОЛЬЗОВАТЕЛИ ====================
 
